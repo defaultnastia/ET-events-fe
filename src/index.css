@@ -1,0 +1,62 @@
+@import "modern-normalize/modern-normalize.css";
+
+:root {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+
+  --main-color: #1483c7;
+  --main-light-color: #dbebf7;
+  --main-fade-color: #6aa2d1;
+  --main-dark-color: #0d2d55;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.2s ease-out;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* h1,
+h2,
+h3 {
+  text-align: center;
+} */
+
+input {
+  outline: none;
+  border: 2px solid var(--main-color);
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: inherit;
+  color: inherit;
+}
+
+input:disabled {
+  background-color: rgba(128, 128, 128, 0.192);
+}
+
+input:focus {
+  border-color: gold;
+}
+
+button {
+  border-radius: 8px;
+  padding: 4px 8px;
+  outline: 0;
+  cursor: pointer;
+  font-size: inherit;
+  color: inherit;
+}
+
+body {
+  color: var(--main-dark-color);
+}

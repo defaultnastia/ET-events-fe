@@ -1,0 +1,36 @@
+.event {
+  padding: 20px;
+  border: 1px solid var(--main-color);
+  border-radius: 16px;
+  width: 420px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.org {
+  font-size: 16px;
+  text-align: end;
+  color: var(--main-fade-color);
+  margin-bottom: 16px;
+}
+
+.event h3 {
+  padding-bottom: 12px;
+}
+
+.date {
+  padding: 12px 0px;
+  &:before {
+    content: "🗓️ ";
+  }
+}
+
+.tools {
+  text-align: center;
+}
+
+.tools button:first-child {
+  margin-right: 12px;
+}
