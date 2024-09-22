@@ -1,12 +1,15 @@
 import GuestTile from "../GuestTile/GuestTile";
 import css from "./GuestsList.module.css";
 
-const GuestsList = ({ guests }) => {
+const GuestsList = ({ guests, lastGuestElementRef }) => {
   return (
     <ul className={css.list}>
-      {guests.map((guest) => {
+      {guests.map((guest, index) => {
         return (
-          <li key={guest._id}>
+          <li
+            key={guest._id}
+            ref={guests.length === index + 1 ? lastGuestElementRef : null}
+          >
             <GuestTile guest={guest}></GuestTile>
           </li>
         );

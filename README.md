@@ -1,13 +1,19 @@
-# Events
+# ET Events
 
-This is an application that simulates a library. User can view, add, edit,
-delete, and search books.
+## MIDDLE LEVEL OF COMPLEXITY (+ infinite scroll)
 
-![alt text](./src/img/preview.png)
+## Description
 
-Technologies and libraries:
+This is an application with list of events. User can view event list, view and
+register guests.
+
+![alt text](./src/img/preview.jpg)
+
+Selected technologies and libraries:
 
 - JavaScript
 - React, React DOM
+- React Router DOM
+- Formik
 - Axios
 - Vite

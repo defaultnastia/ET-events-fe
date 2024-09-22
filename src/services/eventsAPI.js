@@ -1,16 +1,20 @@
 import axios from "axios";
 
 const eventsAPIInstance = axios.create({
-  baseURL: "https://et-events-be.onrender.com/api/events",
+  baseURL: "https://et-events-be.onrender.com/api",
 });
 
-export const getAllEvents = async () => {
-  const result = await eventsAPIInstance.get("");
+export const getAllEvents = async ({ page, limit }) => {
+  const result = await eventsAPIInstance.get(
+    `/events?page=${page}&limit=${limit}`
+  );
   return result.data;
 };
 
-export const getEventGuest = async (id) => {
-  const result = await eventsAPIInstance.get(`/${id}/guests`);
+export const getEventGuests = async ({ eventId, page, limit }) => {
+  const result = await eventsAPIInstance.get(
+    `/events/${eventId}/guests?page=${page}&limit=${limit}`
+  );
   return result.data;
 };
 

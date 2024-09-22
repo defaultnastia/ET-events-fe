@@ -9,8 +9,10 @@ const GuestTile = ({ guest }) => {
 
   return (
     <div className={css.guest}>
+      <p className={css.icon}>🔖</p>
       <h3>{name} </h3>
       <p className={css.date}>{dayjs(birthDate).toNow(true)}</p>
+      <p className={css.icon}>📨</p>
       <a className={css.email} href={`mailto:${email}}`}>
         {email}
       </a>

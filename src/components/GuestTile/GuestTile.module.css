@@ -7,11 +7,12 @@
   text-align: center;
 }
 
+.icon {
+  font-size: 40px;
+  padding: 20px;
+}
+
 .email {
   display: inline-block;
   margin-top: 16px;
-
-  &::before {
-    content: "📨 ";
-  }
 }
