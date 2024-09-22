@@ -1,0 +1,17 @@
+.guest {
+  padding: 20px;
+  border: 1px solid var(--main-color);
+  border-radius: 16px;
+  width: 320px;
+
+  text-align: center;
+}
+
+.email {
+  display: inline-block;
+  margin-top: 16px;
+
+  &::before {
+    content: "📨 ";
+  }
+}

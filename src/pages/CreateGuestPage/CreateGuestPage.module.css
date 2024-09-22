@@ -1,0 +1,9 @@
+.header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.header p {
+  text-transform: uppercase;
+  color: var(--main-fade-color);
+}

@@ -31,6 +31,6 @@
   text-align: center;
 }
 
-.tools button:first-child {
+.tools *:first-child {
   margin-right: 12px;
 }

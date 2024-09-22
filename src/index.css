@@ -14,7 +14,8 @@
 * {
   margin: 0;
   padding: 0;
-  transition: 0.2s ease-out;
+  transition: 0.25s ease-out;
+  transition-property: scale, color, background-color, border-color;
 }
 
 ul {
@@ -23,6 +24,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 /* h1,
@@ -33,7 +35,7 @@ h3 {
 
 input {
   outline: none;
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-dark-color);
   border-radius: 8px;
   padding: 4px 8px;
   font-size: inherit;
@@ -45,7 +47,7 @@ input:disabled {
 }
 
 input:focus {
-  border-color: gold;
+  border-color: var(--main-color);
 }
 
 button {
@@ -59,4 +61,26 @@ button {
 
 body {
   color: var(--main-dark-color);
+}
+
+.cta {
+  display: inline-block;
+  padding: 4px 8px;
+
+  font-size: inherit;
+
+  color: inherit;
+  background-color: transparent;
+
+  border: 2px solid var(--main-dark-color);
+  border-radius: 8px;
+  outline: 0;
+
+  cursor: pointer;
+}
+
+.cta:hover {
+  color: white;
+  background-color: var(--main-color);
+  border-color: var(--main-color);
 }

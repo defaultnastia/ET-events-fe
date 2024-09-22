@@ -1,0 +1,32 @@
+.form {
+  margin: 0 auto;
+  padding: 20px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.radios {
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input:has(> span.error) input {
+  border-color: crimson;
+}
+
+.error {
+  color: crimson;
+  font-size: smaller;
+}
+
+.form button[type="submit"] {
+  margin-top: 20px;
+}

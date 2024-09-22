@@ -1,0 +1,20 @@
+.message {
+  width: fit-content;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.message *:last-child {
+  margin-top: 12px;
+}
+
+.header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.header p {
+  text-transform: uppercase;
+  color: var(--main-fade-color);
+}

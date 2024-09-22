@@ -1,15 +1,14 @@
 import dayjs from "dayjs";
-import Button from "../Button/Button";
 import css from "./EventTile.module.css";
+import { NavLink } from "react-router-dom";
 
 const EventTile = ({ event }) => {
-  const { title, description, eventDate, organizer } = event;
-
-  const onClick = () => {};
+  const { _id, title, description, eventDate, organizer } = event;
 
   return (
     <div className={css.event}>
       <p className={css.org}>{organizer}&apos;s Event</p>
+
       <div>
         <h3>{title} </h3>
         <p>{description}</p>
@@ -17,13 +16,22 @@ const EventTile = ({ event }) => {
           {dayjs(eventDate).format("dddd, MMMM D, YYYY")}
         </p>
       </div>
+
       <div className={css.tools}>
-        <Button btnType="register" onClick={onClick}>
+        <NavLink
+          className="cta"
+          to={`/${_id}/createGuest`}
+          state={{ eventId: _id, title }}
+        >
           Register
-        </Button>
-        <Button btnType="view" onClick={onClick}>
+        </NavLink>
+        <NavLink
+          className="cta"
+          to={`/${_id}/guests`}
+          state={{ eventId: _id, title }}
+        >
           View Guests
-        </Button>
+        </NavLink>
       </div>
     </div>
   );

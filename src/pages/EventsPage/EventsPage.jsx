@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import css from "./EventsPage.module.css";
-import EventTile from "../../components/EventTile/EventTile";
 import { getAllEvents } from "../../services/eventsAPI";
 import Loader from "../../components/Loader/Loader";
 import toast from "react-hot-toast";
+import EventsList from "../../components/EventsList/EventsList";
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -33,18 +33,8 @@ const EventsPage = () => {
 
   return (
     <div>
-      {loader && Loader}
-      {!!events.length && (
-        <ul className={css.list}>
-          {events.map((event) => {
-            return (
-              <li key={events.id}>
-                <EventTile event={event}></EventTile>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      {loader && <Loader />}
+      {!!events.length && <EventsList events={events} />}
       {!events.length && (
         <p className={css.message}>
           Sorry, there are no events to display at the moment.

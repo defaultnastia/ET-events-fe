@@ -12,7 +12,7 @@ const CreateGuestPage = lazy(() =>
 function App() {
   return (
     <Layout>
-      <Toaster />
+      <Toaster position="bottom-center" />
       <Routes>
         <Route path="/" element={<EventsPage />} />
         <Route path="/:id/guests" element={<GuestsPage />} />
