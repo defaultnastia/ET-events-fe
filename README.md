@@ -4,6 +4,8 @@
 
 ## Description
 
+https://aesthetic-taffy-6066a2.netlify.app/
+
 This is an application with list of events. User can view event list, view and
 register guests.
 
