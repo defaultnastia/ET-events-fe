@@ -16,7 +16,7 @@ const EventsPage = () => {
         setLoader(true);
         setError(null);
         const fetchedEvents = await getAllEvents();
-        setEvents(fetchedEvents.result);
+        setEvents(fetchedEvents.results);
       } catch (error) {
         setError(error.message);
       } finally {

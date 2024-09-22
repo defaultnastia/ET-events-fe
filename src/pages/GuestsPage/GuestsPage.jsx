@@ -20,7 +20,7 @@ const GuestsPage = () => {
         setLoader(true);
         setError(null);
         const fetchedEvents = await getEventGuest(eventId);
-        setGuests(fetchedEvents.result.reverse());
+        setGuests(fetchedEvents.results.reverse());
       } catch (error) {
         setError(error.message);
       } finally {
