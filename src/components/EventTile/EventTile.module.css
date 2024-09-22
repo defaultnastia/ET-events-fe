@@ -3,7 +3,7 @@
   border: 1px solid var(--main-color);
   border-radius: 16px;
   width: 420px;
-  min-height: 280px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

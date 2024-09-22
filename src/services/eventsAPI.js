@@ -1,12 +1,16 @@
 import axios from "axios";
 
+// const eventsAPIInstance = axios.create({
+//   baseURL: "https://et-events-be.onrender.com/api",
+// });
+
 const eventsAPIInstance = axios.create({
-  baseURL: "https://et-events-be.onrender.com/api",
+  baseURL: "http://localhost:3000/api",
 });
 
-export const getAllEvents = async ({ page, limit }) => {
+export const getAllEvents = async ({ page, limit, sort }) => {
   const result = await eventsAPIInstance.get(
-    `/events?page=${page}&limit=${limit}`
+    `/events?page=${page}&limit=${limit}&sort=${sort}`
   );
   return result.data;
 };

@@ -1,0 +1,11 @@
+.selector {
+  text-align: center;
+}
+
+.selector select {
+  margin-left: 4px;
+  border-radius: 4px;
+  border: 1px solid var(--main-color);
+  outline: none;
+  color: inherit;
+}

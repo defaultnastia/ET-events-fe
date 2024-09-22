@@ -4,9 +4,11 @@ import { getAllEvents } from "../../services/eventsAPI";
 import Loader from "../../components/Loader/Loader";
 import toast from "react-hot-toast";
 import EventsList from "../../components/EventsList/EventsList";
+import EventsSortInput from "../../components/EventsSortInput/EventsSortInput";
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
+  const [sortField, setSortField] = useState("eventDate");
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
   const [total, setTotal] = useState(0);
@@ -22,9 +24,17 @@ const EventsPage = () => {
       const { total, results } = await getAllEvents({
         page,
         limit: limitPerPage,
+        sort: sortField,
       });
 
-      setEvents((prevEvents) => [...prevEvents, ...results]);
+      if (page > 1) {
+        setEvents((prevEvents) => [...prevEvents, ...results]);
+      }
+
+      if (page === 1) {
+        setEvents(results);
+      }
+
       setTotal(total);
     } catch (error) {
       setError(error.message);
@@ -35,7 +45,9 @@ const EventsPage = () => {
 
   useEffect(() => {
     loadEvents();
-  }, [page]);
+  }, [page, sortField]);
+
+  // === INFINITE SCROLL ===
 
   const lastEventElementRef = useCallback(
     (node) => {
@@ -54,14 +66,25 @@ const EventsPage = () => {
     [loader]
   );
 
+  // === ERROR ===
+
   useEffect(() => {
     if (!error) return;
     toast.error(`Something went wrong: ${error}`);
   }, [error]);
 
+  // === RENDER ===
+
   return (
     <div>
       {loader && <Loader />}
+      {!!events.length && (
+        <EventsSortInput
+          setSortField={setSortField}
+          sortField={sortField}
+          setPage={setPage}
+        />
+      )}
       {!!events.length && (
         <EventsList events={events} lastEventElementRef={lastEventElementRef} />
       )}
