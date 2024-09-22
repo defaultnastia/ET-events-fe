@@ -1,19 +1,21 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import css from "./GuestsPage.module.css";
-import Loader from "../../components/Loader/Loader";
-import toast from "react-hot-toast";
 import { NavLink, useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
 import { getEventGuests } from "../../services/eventsAPI";
+import Loader from "../../components/Loader/Loader";
 import GuestsList from "../../components/GuestsList/GuestsList";
+import GuestsSearchForm from "../../components/GuestsSearchForm/GuestsSearchForm";
+import css from "./GuestsPage.module.css";
 
 const GuestsPage = () => {
   const [guests, setGuests] = useState([]);
+  const [query, setQuery] = useState("");
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
 
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
-  const limitPerPage = 10;
+  const limitPerPage = 3;
   const observer = useRef();
 
   const location = useLocation();
@@ -27,11 +29,19 @@ const GuestsPage = () => {
         eventId,
         page,
         limit: limitPerPage,
+        query,
       });
-      setGuests((prevEvents) => [...prevEvents, ...results]);
+
+      if (page > 1) {
+        setGuests((prevEvents) => [...prevEvents, ...results]);
+      }
+
+      if (page === 1) {
+        setGuests(results);
+      }
       setTotal(total);
     } catch (error) {
-      setError(error.message);
+      error.status === 404 ? setGuests([]) : setError(error.message);
     } finally {
       setLoader(false);
     }
@@ -39,7 +49,7 @@ const GuestsPage = () => {
 
   useEffect(() => {
     getEvents();
-  }, [eventId, page]);
+  }, [eventId, page, query]);
 
   const lastGuestElementRef = useCallback(
     (node) => {
@@ -72,6 +82,8 @@ const GuestsPage = () => {
         <p>Registered Guests</p>
       </div>
 
+      <GuestsSearchForm setQuery={setQuery} setPage={setPage} />
+
       {!!guests.length && (
         <GuestsList guests={guests} lastGuestElementRef={lastGuestElementRef} />
       )}
@@ -79,8 +91,19 @@ const GuestsPage = () => {
       {!guests.length && (
         <div className={css.message}>
           <p>
-            There are no guests yet. <br /> Be the first one!
+            No guests to show yet. <br /> Clear the filter if applied or be the
+            first one!
           </p>
+
+          <button
+            className="cta"
+            onClick={() => {
+              setQuery("");
+            }}
+          >
+            Remove Filters
+          </button>
+
           <NavLink
             className="cta"
             to={`/${eventId}/createGuest`}

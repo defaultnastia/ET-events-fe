@@ -1,7 +1,7 @@
+import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Layout from "./Layout";
-import { lazy } from "react";
 
 const EventsPage = lazy(() => import("./pages/EventsPage/EventsPage"));
 const GuestsPage = lazy(() => import("./pages/GuestsPage/GuestsPage"));

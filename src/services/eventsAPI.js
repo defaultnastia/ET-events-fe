@@ -1,11 +1,7 @@
 import axios from "axios";
 
-// const eventsAPIInstance = axios.create({
-//   baseURL: "https://et-events-be.onrender.com/api",
-// });
-
 const eventsAPIInstance = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://et-events-be-production.up.railway.app/api",
 });
 
 export const getAllEvents = async ({ page, limit, sort }) => {
@@ -15,14 +11,14 @@ export const getAllEvents = async ({ page, limit, sort }) => {
   return result.data;
 };
 
-export const getEventGuests = async ({ eventId, page, limit }) => {
+export const getEventGuests = async ({ eventId, page, limit, query }) => {
   const result = await eventsAPIInstance.get(
-    `/events/${eventId}/guests?page=${page}&limit=${limit}`
+    `/events/${eventId}/guests?page=${page}&limit=${limit}&query=${query}`
   );
   return result.data;
 };
 
 export const createEventGuest = async (id, data) => {
-  const result = await eventsAPIInstance.post(`/${id}/guests`, data);
+  const result = await eventsAPIInstance.post(`/events/${id}/guests`, data);
   return result.data;
 };

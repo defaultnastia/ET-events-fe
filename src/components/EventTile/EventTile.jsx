@@ -1,6 +1,6 @@
+import { NavLink } from "react-router-dom";
 import dayjs from "dayjs";
 import css from "./EventTile.module.css";
-import { NavLink } from "react-router-dom";
 
 const EventTile = ({ event }) => {
   const { _id, title, description, eventDate, organizer } = event;

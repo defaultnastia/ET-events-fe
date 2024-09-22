@@ -1,6 +1,6 @@
-import css from "./CreateGuestPage.module.css";
 import { useLocation } from "react-router-dom";
 import GuestRegistrationForm from "../../components/GuestRegistrationForm/GuestRegistrationForm";
+import css from "./CreateGuestPage.module.css";
 
 const CreateGuestPage = () => {
   const location = useLocation();

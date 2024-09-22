@@ -1,12 +1,13 @@
 .message {
   width: fit-content;
-  margin: 0 auto;
+  margin: 60px auto;
 
   text-align: center;
 }
 
 .message *:last-child {
   margin-top: 12px;
+  margin-left: 12px;
 }
 
 .header {

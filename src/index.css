@@ -37,7 +37,7 @@ input {
   outline: none;
   border: 2px solid var(--main-dark-color);
   border-radius: 8px;
-  padding: 4px 8px;
+  padding: 8px 12px;
   font-size: inherit;
   color: inherit;
 }
@@ -50,16 +50,8 @@ input:focus {
   border-color: var(--main-color);
 }
 
-button {
-  border-radius: 8px;
-  padding: 4px 8px;
-  outline: 0;
-  cursor: pointer;
-  font-size: inherit;
-  color: inherit;
-}
-
 body {
+  min-width: 360px;
   color: var(--main-dark-color);
 }
 

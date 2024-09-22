@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import css from "./EventsPage.module.css";
+import toast from "react-hot-toast";
 import { getAllEvents } from "../../services/eventsAPI";
 import Loader from "../../components/Loader/Loader";
-import toast from "react-hot-toast";
 import EventsList from "../../components/EventsList/EventsList";
 import EventsSortInput from "../../components/EventsSortInput/EventsSortInput";
+import css from "./EventsPage.module.css";
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -37,7 +37,7 @@ const EventsPage = () => {
 
       setTotal(total);
     } catch (error) {
-      setError(error.message);
+      error.status === 404 ? setEvents([]) : setError(error.message);
     } finally {
       setLoader(false);
     }

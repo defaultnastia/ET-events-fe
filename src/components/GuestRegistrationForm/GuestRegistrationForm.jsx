@@ -1,11 +1,11 @@
-import { Field, Form, Formik, ErrorMessage } from "formik";
-import css from "./GuestRegistrationForm.module.css";
 import { useEffect, useId, useState } from "react";
-import { createEventGuest } from "../../services/eventsAPI.js";
+import { useNavigate } from "react-router-dom";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import toast from "react-hot-toast";
 import FormDatePicker from "../FormDatePicker/FormDatePicker";
+import { createEventGuest } from "../../services/eventsAPI.js";
 import { guestValidationSchema } from "../../helpers/guestValidationSchema";
-import { useNavigate } from "react-router-dom";
+import css from "./GuestRegistrationForm.module.css";
 
 const initialValues = {
   name: "",
